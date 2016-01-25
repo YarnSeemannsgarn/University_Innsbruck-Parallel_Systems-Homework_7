@@ -1,0 +1,6 @@
+# Objects
+*.o
+
+# Executables
+wrong_bubble_sort_omp
+bubble_sort_omp
