@@ -26,7 +26,7 @@ int checkSortedList(int *list, size_t N) {
 // Matrix for parallel counting sort
 int **create_matrix(size_t M, size_t N)
 {
-    int *values = malloc(M * N * sizeof(int));
+    int *values = calloc(M * N, sizeof(int));
     int **rows = malloc(M * sizeof(int *));
     int i;
     for (i=0; i<M; ++i)
@@ -36,3 +36,8 @@ int **create_matrix(size_t M, size_t N)
     return rows;
 }
 
+void destroy_matrix(int **matrix)
+{
+    free(*matrix);
+    free(matrix);
+}

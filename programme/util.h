@@ -11,6 +11,9 @@
 // list helpers
 void print_list(int *list, size_t N);
 int checkSortedList(int *list, size_t N);
-int **create_matrix(size_t M, size_t N)
+
+// matrix for parallel counting sort
+int **create_matrix(size_t M, size_t N);
+void destroy_matrix(int **matrix);
 
 #endif

@@ -74,6 +74,13 @@ int main(int argc, char *argv[]) {
     print_list(list, N);
   }
 
+  // Check list
+  if (checkSortedList(list, N) == 1) {
+    fprintf(stderr, "List was not sorted correctly!\n");
+    free(list);
+    return EXIT_FAILURE;
+  }
+
   // Free memory
   free(list);
 
