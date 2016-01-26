@@ -18,8 +18,10 @@ counting_sort_omp: $(OBJECTS)
 bucket_sort_omp: $(OBJECTS)
 	$(CC) $(CFLAGS) bucket_sort_omp.o util.o -o $@ -lm
 
+# Use intel compiler (13.0), because it supports OpenMP 3.1,
+# which is necessary in selection_sort_omp for min reduction
 selection_sort_omp: $(OBJECTS)
-	$(CC) $(CFLAGS) selection_sort_omp.o util.o -o $@ -lm
+	icc -openmp selection_sort_omp.o util.o -o $@
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@

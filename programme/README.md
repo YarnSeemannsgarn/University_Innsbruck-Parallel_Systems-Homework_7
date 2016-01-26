@@ -1,3 +1,9 @@
+Requirements
+============
+
+Intel Compiler 13.0 for support of OpenMP 3.1,
+which is necessary in selection_sort_omp for min reduction
+
 How to run the programme/s
 ==========================
 
