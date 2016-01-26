@@ -9,6 +9,7 @@
 #define USAGE_MESSAGE "Usage: %s <problem-size> [<debug>]\n"
 
 // list helpers
+void swap(int *a, int *b);
 void print_list(int *list, size_t N);
 int checkSortedList(int *list, size_t N);
 

@@ -5,6 +5,12 @@
 #include "util.h"
 
 // List helpers
+void swap(int *a, int *b) {
+  int tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+
 void print_list(int *list, size_t N) {
   int i;
   for (i = 0; i < N; ++i) {
@@ -24,8 +30,7 @@ int checkSortedList(int *list, size_t N) {
 }
 
 // Matrix for parallel counting sort
-int **create_matrix(size_t M, size_t N)
-{
+int **create_matrix(size_t M, size_t N) {
     int *values = calloc(M * N, sizeof(int));
     int **rows = malloc(M * sizeof(int *));
     int i;
@@ -36,8 +41,7 @@ int **create_matrix(size_t M, size_t N)
     return rows;
 }
 
-void destroy_matrix(int **matrix)
-{
+void destroy_matrix(int **matrix) {
     free(*matrix);
     free(matrix);
 }
