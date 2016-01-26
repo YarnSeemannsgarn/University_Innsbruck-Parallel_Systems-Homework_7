@@ -51,12 +51,9 @@ int main(int argc, char *argv[]) {
     print_list(list, N);
   }
 
-  // Measure time 
+  // Run wrong bubble sort and measure time 
   double begin = omp_get_wtime();
-  
   wrong_bubble_sort(list, N);
-
-  // Print time
   double end = omp_get_wtime();
   printf("Time spent: %fs\n", end-begin);
 

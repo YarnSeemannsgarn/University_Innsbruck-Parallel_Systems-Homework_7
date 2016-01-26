@@ -12,3 +12,27 @@ void print_list(int *list, size_t N) {
   }
   printf("\n\n");
 }
+
+int checkSortedList(int *list, size_t N) {
+  int i;
+  for (i = 0; i < N-1; i++) {
+    if (list[i] > list[i+1]) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+// Matrix for parallel counting sort
+int **create_matrix(size_t M, size_t N)
+{
+    int *values = malloc(M * N * sizeof(int));
+    int **rows = malloc(M * sizeof(int *));
+    int i;
+    for (i=0; i<M; ++i)
+    {
+        rows[i] = values + i*N;
+    }
+    return rows;
+}
+

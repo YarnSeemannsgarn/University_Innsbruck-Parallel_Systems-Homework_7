@@ -10,5 +10,7 @@
 
 // list helpers
 void print_list(int *list, size_t N);
+int checkSortedList(int *list, size_t N);
+int **create_matrix(size_t M, size_t N)
 
 #endif
