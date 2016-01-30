@@ -14,4 +14,4 @@ qsub -cwd \
      -N "bucket_sort_omp" \
      -pe openmp $nprocs \
      -b y \
-     "export OMP_NUM_THREADS=$nprocs && module load intel/13.0 && ./bucket_sort_omp $problemsize"
+     "export OMP_NUM_THREADS=$nprocs && ./bucket_sort_omp $problemsize"

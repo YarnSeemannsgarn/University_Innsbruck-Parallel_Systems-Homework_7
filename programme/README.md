@@ -49,10 +49,31 @@ Programme: bubble_sort_omp with problem size 1000000
 
 Nprocs | Runtime (in s) | Speedup | Efficency
 :------|----------------|--------:|----------:
-1      |        1549.72 |       - |         
-2      |         774.53 |      		  |
-4      |         479.26 |      |      
-8      |         288.17 |      |
+1      |        1345.53 |       - |         -
+2      |         667.11 |    2.02 |      1.01
+4      |         479.26 |    2.81 |      0.70 
+8      |         288.17 |    4.67 |      0.59
+
+
+Programme: counting_sort_omp with problem size 400000000
+
+Nprocs | Runtime (in s) | Speedup | Efficency
+:------|----------------|--------:|----------:
+1      |          11.91 |       - |         -
+2      |           7.28 |    1.48 |      0.74
+4      |           4.21 |    2.89 |      0.71
+8      |           2.19 |    5.44 |      0.68
+
+
+Programme: bucket_sort_omp with problem size 100000000 (with 10000 buckets)
+
+Nprocs | Runtime (in s) | Speedup | Efficency
+:------|----------------|--------:|----------:
+1      |          25.49 |       - |         -
+2      |          12.68 |    2.01 |      1.01
+4      |           7.02 |    3.63 |      0.91 
+8      |           4.10 |    6.22 |      0.78
+
 
 Programme: selection_sort_omp with problem size 1000000
 This runtimes for this programme were measured under a different system, because the lcc cluster does not have a compiler which supports OpenMP4.0 (gcc, icc and pgcc have not the needed version).
@@ -67,3 +88,14 @@ Nprocs | Runtime (in s) | Speedup | Efficency
 8      |         389.74 |    1.87 |	 0.23
 
 Because the machine has only 4 CPUs, the efficency for 8 threads is lower than the efficency of 2 and 4 threads. Still there is a recognizable speedup.
+
+
+Programme: quick_sort_omp with problem size 100000000
+
+Nprocs | Runtime (in s) | Speedup | Efficency
+:------|----------------|--------:|----------:
+1      |         719.94 |       - |         -
+2      |         599.38 |    1.20 |      0.60
+4      |         621.73 |    1.16 |      0.29
+8      |         554.03 |    1.30 |      0.16
+
