@@ -7,25 +7,33 @@
 
 #include "util.h"
 
-// https://en.wikipedia.org/wiki/Selection_sort#Implementation
-// Adapted for parallelization
-void selection_sort_parallel(int *list, size_t N) {
-  int i, j, iMin;
-  for (j = 0; j < N-1; ++j){
-    iMin = j;
-    #pragma omp parallel for reduction(min: iMin)
-    for (i = j + 1; i < N; ++i) {
-      if (list[i] < list[iMin]) {
-	iMin = i;
+// Works since OpenMP 4.0
+struct Compare { int val; int index; };
+#pragma omp declare reduction(maximum : struct Compare : omp_out = omp_in.val > omp_out.val ? omp_in : omp_out)
+
+void selection_sort_parallel(int* list, int size) {
+  int i;
+  for (i = size - 1; i > 0; --i) {
+    struct Compare max;
+    max.val = list[i];
+    max.index = i;
+    int j;
+
+    #pragma omp parallel for reduction(maximum:max)
+    for (j = i - 1; j >= 0; --j) {
+      if (list[j] > max.val) {
+	max.val = list[j];
+	max.index = j;
       }
     }
-
-    if (iMin != j) {
-      swap(&list[j], &list[iMin]);
+    
+    if (i != max.index) {
+      int tmp = list[i];
+      list[i] = max.val;
+      list[max.index] = tmp;
     }
   }
 }
-
 
 int main(int argc, char *argv[]) {
   // Handle parameter
