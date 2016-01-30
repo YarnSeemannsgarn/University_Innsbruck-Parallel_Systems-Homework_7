@@ -53,3 +53,17 @@ Nprocs | Runtime (in s) | Speedup | Efficency
 2      |         774.53 |      		  |
 4      |         479.26 |      |      
 8      |         288.17 |      |
+
+Programme: selection_sort_omp with problem size 1000000
+This runtimes for this programme were measured under a different system, because the lcc cluster does not have a compiler which supports OpenMP4.0 (gcc, icc and pgcc have not the needed version).
+More information: http://openmp.org/wp/openmp-compilers/
+Used host machine: single machine with 4 CPUs
+
+Nprocs | Runtime (in s) | Speedup | Efficency
+:------|----------------|--------:|----------:
+1      |         727.84 |       - |         -
+2      |         366.66 |    1.99 |      0.99
+4      |         187.77 |    3.88 |      0.97      
+8      |         389.74 |    1.87 |	 0.23
+
+Because the machine has only 4 CPUs, the efficency for 8 threads is lower than the efficency of 2 and 4 threads. Still there is a recognizable speedup.
