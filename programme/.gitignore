@@ -7,3 +7,4 @@ bubble_sort_omp
 counting_sort_omp
 bucket_sort_omp
 selection_sort_omp
+quick_sort_omp

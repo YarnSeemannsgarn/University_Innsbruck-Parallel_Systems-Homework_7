@@ -21,8 +21,11 @@ counting_sort_omp: $(OBJECTS)
 bucket_sort_omp: $(OBJECTS)
 	$(CC) $(CFLAGS) bucket_sort_omp.o util.o -o $@ -lm
 
-selection_sort_omp:  $(OBJECTS)
+selection_sort_omp: $(OBJECTS)
 	$(CC) $(CFLAGS) selection_sort_omp.o util.o -o $@
+
+quick_sort_omp: $(OBJECTS)
+	$(CC) $(CFLAGS) quick_sort_omp.o util.o -o $@
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
